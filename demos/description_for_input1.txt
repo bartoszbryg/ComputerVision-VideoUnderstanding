@@ -1,0 +1,21 @@
+Description file: output\description_for_input1.txt
+Loading YOLO yolov8n.pt
+Loading BLIP captioner
+Video: 640x480, 10.0 fps, 506 frames
+At 0.0s: A person in an orange vest is standing on a runway.
+At 3.0s: A person in an orange vest is standing on a runway. (3 person)
+At 6.0s: A person in an orange vest is standing on a runway. Objects are moving left. (3 person)
+At 9.0s: A person in an orange vest is standing on a runway. (2 person)
+At 12.0s: A person in an orange vest is standing on a runway. (3 person)
+At 15.0s: A person in an orange vest is standing on a runway. (3 person)
+At 18.0s: A person in an orange vest is standing on a runway. (3 person, 1 airplane)
+At 21.0s: A person in an orange vest is standing on the runway. (2 person, 1 airplane)
+At 24.0s: A person in an orange vest is standing on the tar. (3 person, 1 airplane)
+At 27.0s: A person in an orange vest is pointing at the camera. Objects are moving right. (2 person, 1 airplane)
+At 30.0s: A person in an orange vest is standing on the tar. Objects are moving right. (3 person, 1 airplane)
+At 33.0s: A person in an orange vest is pointing at an airplane. Objects are moving right. (3 person, 1 airplane)
+At 36.0s: A person in an orange vest is pointing at an airplane. Objects are moving left. (3 person, 1 airplane)
+At 39.0s: A person in an orange vest is standing on the runway. (3 person, 1 airplane)
+At 42.0s: A person in an orange vest is standing on the tar. (3 person, 1 airplane)
+At 45.0s: A plane is parked on the tarmacl. Objects are moving right. (3 person, 1 airplane)
+At 48.0s: A person in an orange vest is standing on the tar. (3 person, 1 airplane)

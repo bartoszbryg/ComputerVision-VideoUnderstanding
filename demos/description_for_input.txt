@@ -1,0 +1,14 @@
+Description file: output\description_for_input.txt
+Loading YOLO yolov8n.pt
+Loading BLIP captioner
+Video: 640x480, 10.0 fps, 282 frames
+At 0.0s: A car is driving down the street in front of a traffic light.
+At 3.0s: A car is driving down the street with traffic lights. Objects are moving left. (6 car)
+At 6.0s: A street with a traffic light and a sign. Objects are moving left, moving down. (8 car, 1 person)
+At 9.0s: A street with traffic lights and signs on it. Objects are moving left, moving down, moving up. (5 car, 1 person)
+At 12.0s: A person crossing a street with a traffic light. Objects are moving left, moving down, moving up. (5 car, 1 person)
+At 15.0s: A person crossing a street with a traffic light. Objects are moving left, moving down, moving up. (4 car, 1 person)
+At 18.0s: A person crossing a street with a traffic light. Objects are moving left, moving down, moving up. (2 car, 1 person)
+At 21.0s: A person crossing a street with a traffic light. Objects are moving left, moving down, moving up. (3 car, 1 person)
+At 24.0s: A person standing on the side of a road. Objects are moving left, moving down, moving up. (4 car, 1 person)
+At 27.0s: A person is crossing the street with a traffic light. Objects are moving left, moving down, moving up. (5 car, 1 person)
