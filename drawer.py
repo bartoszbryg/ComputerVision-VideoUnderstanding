@@ -1,0 +1,64 @@
+import cv2
+
+# Caption text rendered at bottom of frame
+pending_caption = ""
+
+
+def normalize_caption(caption):
+    replacements = {
+        "man": "person",
+        "woman": "person",
+        "boy": "kid",
+        "girl": "kid"
+    }
+
+    words = caption.split()
+    normalized = [replacements.get(w.lower(), w) for w in words]
+    return " ".join(normalized)
+
+# Based on object id from some frame, pick random color in RGB and return this color for it
+def color_for_id(obj_id):
+    obj_id = int(obj_id)
+
+    return (
+        (obj_id * 20) % 256,
+        (obj_id * 40) % 256,
+        (obj_id * 60) % 256
+    )
+
+
+# Set caption for a frame
+def set_caption(text):
+    global pending_caption
+    pending_caption = text
+
+
+# Draw each tracked object on the frame based on its position saved in tracks
+# My tracks are saved in list of {id, label, bbox: [x1,y1,x2,y2]}, frame is the picture for a specific frame
+# Then, return the frame which is the picture
+def draw_tracks(frame, tracks):
+    for object in tracks:
+        x1, y1, x2, y2 = object["bbox"]
+        # First, get random color for specific object id
+        color = color_for_id(object["id"])
+        # Draw rectangle for this object which will show its boundaries
+        cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
+        text = f"{object['label']} #{object['id']}"
+        (tw, th), _ = cv2.getTextSize(text, cv2.FONT_HERSHEY_COMPLEX, 0.55, 1)
+        # Label background
+        cv2.rectangle(frame, (x1, y1 - th - 6), (x1 + tw + 4, y1), color, -1)
+        text = normalize_caption(text)
+        cv2.putText(frame, text, (x1 + 2, y1 - 4),
+                    cv2.FONT_HERSHEY_COMPLEX, 0.55, (255, 255, 255), 1, cv2.LINE_AA)
+
+    # Overlay caption at bottom
+    if pending_caption:
+        h, w = frame.shape[:2]
+        margin = 8
+        (cw, ch), _ = cv2.getTextSize(pending_caption, cv2.FONT_HERSHEY_COMPLEX, 0.5, 1)
+        cv2.rectangle(frame, (margin, h - ch - margin * 2), (margin + cw + 4, h - margin), (0, 0, 0), -1)
+        caption_text = normalize_caption(pending_caption)
+        cv2.putText(frame, caption_text, (margin + 2, h - margin - 2),
+                    cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 255, 200), 1, cv2.LINE_AA)
+
+    return frame
