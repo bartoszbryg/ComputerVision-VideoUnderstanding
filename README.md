@@ -9,8 +9,11 @@ It combines:
 - BLIP for image captioning
 - Motion analysis using object history
 
+## Key Idea
+The system maintains object identity across frames and uses motion history to describe how objects move over time.
+
 ## Features
-- Detects objects (person, car, bicycle, etc.)
+- Detects common objects such as people, vehicles, and bicycles
 - Tracks objects across frames with consistent IDs
 - Generates natural language descriptions of scenes
 - Detects movement direction (left, right, up, down)
@@ -19,7 +22,7 @@ It combines:
 
 **Video → YOLO Detection → DeepSORT Tracking → Motion Analysis → NLP → Output**
 
-The system processes video frame-by-frame using the following pipeline:
+The system processes the input video frame-by-frame using the following pipeline:
 
 This pipeline ensures that object identity and motion are preserved across frames, enabling more meaningful scene understanding.
 
@@ -28,8 +31,8 @@ This pipeline ensures that object identity and motion are preserved across frame
    - Controls the overall pipeline execution
 
 2. **Object Detection (detector.py)**
-   - Uses YOLOv8 to detect objects in each frame
-   - Outputs bounding boxes, labels, and confidence scores
+   - Uses YOLOv8 to perform object detection on each frame
+   - Outputs bounding boxes, class labels, and confidence scores
 
 3. **Object Tracking (tracker.py)**
    - Uses DeepSORT to assign consistent IDs to detected objects
@@ -58,3 +61,43 @@ This pipeline ensures that object identity and motion are preserved across frame
 
 ```bash
 python main.py --video input.mp4
+```
+
+
+## Demo
+
+### Video 1
+- [Processed Output](demos/output.mp4)
+- [JSON Output](demos/output.json)
+- [Description](demos/output.txt)
+- [Original Input](https://www.youtube.com/watch?v=BB35ocRGazk)
+
+### Video 2
+- [Processed Output](demos/output1.mp4)
+- [JSON Output](demos/output1.json)
+- [Description](demos/output1.txt)
+- [Original Input](https://www.youtube.com/watch?v=uNN115UfPRY)
+
+The videos are used for educational purposes only.
+
+---
+
+## Example Outputs
+
+The system produces both structured data and natural language descriptions.
+
+### JSON Output (sample)
+
+```json
+{
+  "frame": 120,
+  "timestamp": 4.0,
+  "objects": [
+    {"id": 1, "label": "car", "bbox": [100, 200, 300, 400]},
+    {"id": 2, "label": "person", "bbox": [500, 250, 550, 400]}
+  ]
+}
+```
+### Description Output (sample)
+
+At 4.0s: person moving right. (2 cars, 1 person)
