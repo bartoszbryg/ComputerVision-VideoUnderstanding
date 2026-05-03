@@ -23,8 +23,6 @@ The system processes video frame-by-frame using the following pipeline:
 
 This pipeline ensures that object identity and motion are preserved across frames, enabling more meaningful scene understanding.
 
-The system processes video frame-by-frame using the following pipeline:
-
 1. **Input (main.py)**
    - Reads video frames using OpenCV
    - Controls the overall pipeline execution
