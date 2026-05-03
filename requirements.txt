@@ -1,0 +1,9 @@
+opencv-python
+ultralytics
+deep-sort-realtime
+torch
+torchvision
+transformers
+pillow
+scipy
+numpy
