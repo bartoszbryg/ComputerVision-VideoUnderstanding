@@ -9,6 +9,8 @@ It combines:
 - BLIP for image captioning
 - Motion analysis using object history
 
+**Track:** Computer Vision
+
 ## Key Idea
 The system maintains object identity across frames and uses motion history to describe how objects move over time.
 
@@ -101,3 +103,44 @@ The system produces both structured data and natural language descriptions.
 ### Description Output (sample)
 
 At 4.0s: person moving right. (2 cars, 1 person)
+
+
+---
+
+## All Options
+
+| Flag | Default | Description |
+|---|---|---|
+| `--video` | `input.mp4` | Path to input video file |
+| `--weights` | `yolov8n.pt` | YOLO model weights |
+| `--caption-every` | `30` | Generate caption every N frames |
+| `--no-nlp` | off | Disable BLIP captioning (faster) |
+| `--output-dir` | `output/` | Directory for output files |
+
+---
+
+## Files
+```
+├── main.py          # Pipeline orchestrator and entry point
+├── detector.py      # YOLOv8 object detection
+├── tracker.py       # DeepSORT multi-object tracking and motion history
+├── nlp.py           # BLIP captioning and scene description generation
+├── drawer.py        # Frame annotation and visualization
+├── utils.py         # Logging, timestamp conversion, JSON utilities
+├── requirements.txt # Python dependencies
+└── demos/           # Sample outputs from two test videos
+```
+
+---
+## Requirements
+- Python 3.8+
+- CUDA-capable GPU strongly recommended (BLIP captioning is very slow on CPU)
+Models are downloaded automatically on first run:
+- YOLOv8n (~6 MB, from Ultralytics)
+- BLIP image captioning base (~990 MB, from Hugging Face)
+---
+## Limitations
+- Detection is limited to 8 object classes: person, car, bicycle, airplane, train, truck, motorcycle, bus
+- BLIP captioning sometimes misidentifies objects (e.g., labels a truck as a car)
+- DeepSORT can lose track of objects during fast movement or occlusion
+- No real-time processing — designed for offline video analysis
