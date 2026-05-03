@@ -67,15 +67,15 @@ python main.py --video input.mp4
 ## Demo
 
 ### Video 1
-- [Processed Output](demos/output.mp4)
-- [JSON Output](demos/output.json)
-- [Description](demos/output.txt)
+- [Processed Output](demos/output_video_for_input.mp4)
+- [JSON Output](demos/results_in_json_for_input.json)
+- [Description](demos/description_for_input.txt)
 - [Original Input](https://www.youtube.com/watch?v=BB35ocRGazk)
 
 ### Video 2
-- [Processed Output](demos/output1.mp4)
-- [JSON Output](demos/output1.json)
-- [Description](demos/output1.txt)
+- [Processed Output](demos/output_video_for_input1.mp4)
+- [JSON Output](demos/results_in_json_for_input1.json)
+- [Description](demos/description_for_input1.txt)
 - [Original Input](https://www.youtube.com/watch?v=uNN115UfPRY)
 
 The videos are used for educational purposes only.
