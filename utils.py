@@ -32,9 +32,11 @@ def save_json(data, path):
 def make_frame_entry(frame_idx, timestamp, tracks):
     objects = {}
     for object in tracks:
-        objects["id"] = object["id"]
-        objects["label"] = object["label"]
-        objects["bbox"] = object["bbox"]
+        objects.append({
+            "id": object["id"],
+            "label": object["label"],
+            "bbox": object["bbox"]
+        })
     return {
         "frame": frame_idx,
         "timestamp": timestamp,
